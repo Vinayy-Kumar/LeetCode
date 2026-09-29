@@ -1,13 +1,20 @@
 class Solution {
     public int[] transformArray(int[] nums) {
-         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] % 2 == 0) {
-                nums[i] = 0;
-            } else {
-                nums[i] = 1;
+        int count = 0;
+
+        for (int x : nums) {
+            if (x % 2 == 0) {
+                count++;
             }
         }
-        Arrays.sort(nums);
+        for (int i = 0; i < count; i++) {
+            nums[i] = 0;
+        }
+        for (int i = count; i < nums.length; i++) {
+            nums[i] = 1;
+        }
+
         return nums;
     }
+
 }
